@@ -109,7 +109,7 @@ Catch {
             Write-Host ""
             Try {
                 #############################################################################################################################
-                #### Modify this line to filter what you want in your results, currently only Owners or Admins will be expoted.
+                #### Modify this line to filter what you want in your results
                 #############################################################################################################################
                 $Current = Get-AzureRmVm | Select-Object -Property @{Name = 'SubscriptionName'; Expression = {$sub.name}}, @{Name = 'SubscriptionID'; Expression = {$sub.id}}, Name, @{Label="Creator";Expression={$_.Tags["CreatedBy"]}}, @{Label="VmSize";Expression={$_.HardwareProfile.VmSize}}, @{Label="OsType";Expression={$_.StorageProfile.OsDisk.OsType}}, Location, VmId, ResourceGroupName, Id
                 $AzureVMs += $Current
