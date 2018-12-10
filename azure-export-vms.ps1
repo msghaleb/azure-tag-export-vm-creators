@@ -156,11 +156,11 @@ Catch {
                 Write-Host "Creator Tag was found : " $AzureVM.Creator -ForegroundColor Blue -BackgroundColor Black 
               }  
             }
-        #Export the Role Assignments to a CSV file labeled by the subscription name
+        #Export the VMs to a CSV file labeled by the subscription name
         $Current2 = Get-AzureRmVm | Select-Object -Property @{Name = 'SubscriptionName'; Expression = {$sub.name}}, @{Name = 'SubscriptionID'; Expression = {$sub.id}}, Name, @{Label="Creator";Expression={$_.Tags["CreatedBy"]}}, @{Label="VmSize";Expression={$_.HardwareProfile.VmSize}}, @{Label="OsType";Expression={$_.StorageProfile.OsDisk.OsType}}, Location, VmId, ResourceGroupName, Id
         $AzureVMs2 += $Current2
         $csvSubName = $SubName.replace("/","---")
-        $Current2 | Export-CSV "$subsPath\Subscription--$csvSubName-Roles.csv" -Delimiter ';'
+        $Current2 | Export-CSV "$subsPath\Subscription--$csvSubName-VMs.csv" -Delimiter ';'
         }
     }
 

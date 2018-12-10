@@ -11,7 +11,7 @@ Each Subscription will have a seperate CSV file
 > Subscription--{Subscription Name}.csv
 
 There will also be a single CSV file with all RBAC permissions 
-> Subscription--All-Roles.csv
+> Subscription--All-VMs.csv
 
 The script should work locally and on Azure Shell
 
